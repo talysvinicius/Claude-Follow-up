@@ -41,7 +41,7 @@ export default function LessonsPage() {
   const userLevel = planOrder[user?.plan?.toLowerCase()] ?? 0;
 
   const canAccess = (lesson) =>
-    lesson.is_free || userLevel >= planOrder[lesson.required_plan] ?? 1;
+    lesson.is_free || userLevel >= (planOrder[lesson.required_plan] ?? 1);
 
   return (
     <div className="p-6 space-y-6">

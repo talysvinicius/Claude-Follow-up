@@ -34,7 +34,7 @@ class Lesson(Base):
     required_plan: Mapped[str] = mapped_column(String(50), default="starter")
     order: Mapped[int] = mapped_column(Integer, default=0)
     published: Mapped[bool] = mapped_column(Boolean, default=True)
-    metadata: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    extra_data: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     category: Mapped["LessonCategory | None"] = relationship("LessonCategory", back_populates="lessons")
